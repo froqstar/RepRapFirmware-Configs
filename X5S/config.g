@@ -18,7 +18,7 @@ M208 X330 Y330 Z300 S0                             ; Set axis maxima
 ; Endstops
 M574 X1 Y1 Z2 S0                                   ; Set active low endstops
 M558 P5 X0 Y0 Z1 H5                                ; Set Z probe type to PNP NO sensor and the dive height + speeds
-G31 P600 X41.5 Y0 Z0.0                           ; Set Z probe trigger value, offset and trigger height (was 0.59 z)
+G31 P600 X41.5 Y0 Z0.2                           ; Set Z probe trigger value, offset and trigger height (was 0.59 z)
 M557 X47:345 Y30:331 S148 			   ; bed compensation mesh with a spacing of 70mm
 
 ; Drives
@@ -35,11 +35,11 @@ M671 X-92:418 Y172:172 S5  		   	   ; define Z axis leadscrew positions, max 5mm
 
 M350 X16 Y16 Z16 E16 I1                            ; Configure microstepping with interpolation
 M92 X80 Y80 Z400 E807                              ; Set steps per mm
-M566 X2500 Y2500 Z12 E5000                          ; Set maximum instantaneous speed changes (mm/min)
+M566 X1500 Y1500 Z12 E5000                          ; Set maximum instantaneous speed changes (mm/min)
 M203 X7000 Y7000 Z300 E2800                        ; Set maximum speeds (mm/min)
 M201 X1200 Y1200 Z500 E7500                           ; Set accelerations (mm/s^2)
 M906 X1400 Y1400 Z800 E1000 I30                     ; Set motor currents (mA) and motor idle factor in per cent
-M572 D0 S0					   ; DONT use pressure advance
+M572 D0 S0.3					   ; use pressure advance
 M84 S30                                            ; Set idle timeout
 
 ; Heaters
